@@ -1,0 +1,51 @@
+{%  extends 'cian/index.html' %}
+{% block login_logout %}
+            <a class="btn btn-outline-success my-2 my-sm-0"  href="{% url 'hummly:logout' %}">Logout</a>
+
+{% endblock %}
+    {% block body %}
+        <div class="container-fluid">
+            <h1 style="color: darkred">Candidate</h1>
+        <div class="rows">
+                <table class="table table-responsive ">
+                    <thead>
+                        <tr>
+                            {% for head in heads %}
+                                <th>{{ head }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                       {% for data in result %}
+                            <tr class="table-success">
+                                <td>{{ data.serialnumber }}</td>
+                                <td>{{ data.candidate_name }}</td>
+                                <td>{{ data.email }}</td>
+                                <td>{{ data.mobile_number }}</td>
+                                <td>{{ data.current_location }}</td>
+                                <td>{{ data.nearest_city }}</td>
+                                <td>{{ data.ug_course }}</td>
+                                <td>{{ data.ug_institute_name }}</td>
+                                <td>{{ data.ug_tier_one }}</td>
+                                <td>{{ data.ug_passing_year }}</td>
+                                <td>{{ data.pg_course }}</td>
+                                <td>{{ data.pg_institute_name }}</td>
+                                <td>{{ data.pg_tier_one }}</td>
+                                <td>{{ data.pg_passing_year }}</td>
+                                <td>{{ data.preferred_location }}</td>
+                                <td>{{ data.resume }}</td>
+                                <td>{{ data.work_experience }}</td>
+                                <td>{{ data.analytics_experience }}</td>
+                                <td>{{ data.current_employer }}</td>
+                                <td>{{ data.ctc }}</td>
+                                <td>{{ data.current_designation }}</td>
+                                <td>{{ data.skills }}</td>
+                                <td>{{ data.any_other_course }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    {% endblock %}

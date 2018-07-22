@@ -1,0 +1,37 @@
+{% extends 'cian/index.html' %}
+{% load static from staticfiles %}
+{% block login_logout %}
+            <a class="btn btn-outline-success my-2 my-sm-0"  href="{% url 'hummly:logout' %}">Logout</a>
+
+{% endblock %}
+{% block body %}
+<script>
+
+$(document).ready(function(){
+
+$("button#get_m").click(function() {
+$(this).closest("form#candi").attr("method", "GET");
+});
+$("button#post_m").click(function() {
+$(this).closest("form#candi").attr("method", "POST");
+});
+});
+</script>
+        <div class="container-fluid">
+            <h1>Candi Form</h1>
+        <form  id="candi" action="">
+            {% csrf_token %}
+            {% include 'cian/forms.html' %}
+                <div >
+                    <button id="get_m"  type="submit"  class="btn btn-success" >
+                        Retrieve Data
+                    </button>
+                    <button id="post_m"  type="submit"  class="btn btn-warning" >
+                                Save Data
+                    </button>
+
+                </div>
+            </form>
+
+    </div>
+{% endblock %}

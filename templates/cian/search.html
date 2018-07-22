@@ -1,0 +1,22 @@
+{% extends 'cian/index.html' %}
+{% load static from staticfiles %}
+{% block login_logout %}
+            <a class="btn btn-outline-success my-2 my-sm-0"  href="{% url 'hummly:logout' %}">Logout</a>
+
+{% endblock %}
+{% block body %}
+
+    <div class="container-fluid">
+        <h1>Candidate Search</h1>
+        <form action="{% url 'hummly:candi_search' %}" method="GET">
+            {% csrf_token %}
+            {% include 'cian/forms.html' %}
+                <div >
+                    <button id="get_m"  type="submit" class="btn btn-success" >
+                        Retrieve Data
+                    </button>
+
+                </div>
+            </form>
+    </div>
+{% endblock %}
